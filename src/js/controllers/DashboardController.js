@@ -79,29 +79,29 @@ function DashboardController($scope, $http, $timeout) {
       cat.count = 0;
       cat.ccnt = 0;
     })
+    if (data.items.length)
+      for (var i = 0; i < data.items.length; i++) {
+        var x = data.items[i];
+        if ($scope.selected.length > 0 && $scope.selected.indexOf(x.category_id) > -1 && x.lat && x.lon &&
+          measure(e.latlng.lat, e.latlng.lng, x.lat, x.lon) <= meters) {
+          var ic;
+          ic = myIcons[x.category_id];
 
-    for (var i = 0; i < data.items.length; i++) {
-      var x = data.items[i];
-      if ($scope.selected.length > 0 && $scope.selected.indexOf(x.category_id) > -1 && x.lat && x.lon &&
-        measure(e.latlng.lat, e.latlng.lng, x.lat, x.lon) <= meters) {
-        var ic;
-        ic = myIcons[x.category_id];
-
-        // $scope.$apply(function() {
-        for (var j in $scope.categories) {
-          if ($scope.categories[j].id == x.category_id) {
-            $scope.categories[j].count++;
+          // $scope.$apply(function() {
+          for (var j in $scope.categories) {
+            if ($scope.categories[j].id == x.category_id) {
+              $scope.categories[j].count++;
+            }
           }
-        }
-        // });
+          // });
 
-        stack.push(DG.marker([x.lat, x.lon], {
-            icon: ic
-          })
-          .addTo(map)
-          .bindPopup(x.name));
+          stack.push(DG.marker([x.lat, x.lon], {
+              icon: ic
+            })
+            .addTo(map)
+            .bindPopup(x.name));
+        }
       }
-    }
 
     $scope.categories.forEach(function(cat) {
       cat.ccnt = K * cat.count / cat.total * 100;
