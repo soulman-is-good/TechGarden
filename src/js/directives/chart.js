@@ -17,13 +17,11 @@ function chart() {
         } else {
           $scope.model.popup = 'modal fade';
         }
-        $scope.labels = _.pluck($scope.categories, 'name')
-          .map(function(i) {
-            return i + ', %';
-          });
+        $scope.labels = []
         $scope.data = [];
         var max = 0;
         for (var i in $scope.categories) {
+          $scope.labels.push($scope.categories[i].name + ', ' + Math.round($scope.categories[i].ccnt) + "%");
           if ($scope.categories[i].ccnt > max) {
             max = $scope.categories[i].ccnt;
           }
