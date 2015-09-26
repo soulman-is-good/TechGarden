@@ -32,6 +32,7 @@ function DashboardController($scope, $http, $timeout) {
           count: n
         });
       }
+      ready();
     }, function(err) {
       console.log(err);
     });
@@ -107,42 +108,44 @@ function DashboardController($scope, $http, $timeout) {
       cat.ccnt = K * cat.count / cat.total * 100;
     });
   }
-  DG.then(function() {
-    fonts.forEach(function(x, i) {
-      myIcons[i] = DG.divIcon({
-        className: 'uix fa ' + x
+  var ready = function() {
+    DG.then(function() {
+      fonts.forEach(function(x, i) {
+        myIcons[i] = DG.divIcon({
+          className: 'uix fa ' + x
+        });
       });
-    });
-    map = DG.map('map', {
-      center: [$scope.model.lat, $scope.model.lon],
-      zoom: $scope.model.zoom
-    });
-    map.on('click', function(e) {
-      $scope.toggle = true;
-      $timeout(function() {
-        drawCircle({
-          latlng: {
-            lat: e.latlng.lat,
-            lng: e.latlng.lng
-          }
+      map = DG.map('map', {
+        center: [$scope.model.lat, $scope.model.lon],
+        zoom: $scope.model.zoom
+      });
+      map.on('click', function(e) {
+        $scope.toggle = true;
+        $timeout(function() {
+          drawCircle({
+            latlng: {
+              lat: e.latlng.lat,
+              lng: e.latlng.lng
+            }
+          });
         });
       });
     });
-  });
-  $scope.selected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-  $scope.filter = function(idx) {
-    idx = idx * 1;
-    var i = $scope.selected.indexOf(idx);
-    if (i > -1) {
-      $scope.selected.splice(i, 1);
-    } else {
-      $scope.selected.push(idx);
-    }
-    drawCircle({
-      latlng: lastPoint || {
-        lat: $scope.model.lat,
-        lng: $scope.model.lon
+    $scope.selected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    $scope.filter = function(idx) {
+      idx = idx * 1;
+      var i = $scope.selected.indexOf(idx);
+      if (i > -1) {
+        $scope.selected.splice(i, 1);
+      } else {
+        $scope.selected.push(idx);
       }
-    });
+      drawCircle({
+        latlng: lastPoint || {
+          lat: $scope.model.lat,
+          lng: $scope.model.lon
+        }
+      });
+    };
   };
 }
