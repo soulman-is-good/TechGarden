@@ -1,8 +1,9 @@
 /*global angular*/
 angular.module('app', [
     'ngLocale',
-    'ngAnimate',
+    // 'ngAnimate',
     'ui.router',
+    'chart.js',
     'app.controllers',
     'app.services',
     'app.filters',

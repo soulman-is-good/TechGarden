@@ -24,9 +24,34 @@ body {
 
 .container {
   width: auto;
-  max-width: 680px;
+  max-width: 1000px;
   padding: 0 15px;
 }
 .container .text-muted {
   margin: 20px 0;
+}
+.uix {
+  text-align: center;
+  line-height: 20px;
+  width: 28px !important;
+  height: 28px !important;
+}
+.uix.fa-automobile {
+  background: #fff;
+  color: #333;
+  border-radius:14px;
+  border: 3px solid #ddd;
+}
+.uix.fa-exclamation-circle {
+  background: #fff;
+  color: #c44;
+  border-radius:14px;
+  border: 3px solid #ddd;
+}
+.modal {
+  /*position: absolute;*/
+  left: 100px;
+  top: 100px;
+  /*width: 800px;*/
+  /*height: 600px;*/
 }

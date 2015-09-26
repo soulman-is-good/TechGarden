@@ -9,7 +9,7 @@ module.exports = {
   scriptsConfig: {
     APP_NAME: 'techgarden',
     PROJECT_KEY: process.env.ROYAL_PROJECT_KEY,
-    API_SERVER: process.env.ROYAL_API_SERVER || 'http://api.royal.com',
+    HOST_NAME: process.env.HOST_NAME || 'http://soul.techgarden.kz',
     FILE_SERVER: process.env.ROYAL_FILE_SERVER || 'http://fs.royal.com'
   },
   paths: {
@@ -26,6 +26,7 @@ module.exports = {
       'bower_components/bootstrap/dist/css/bootstrap.css',
       'bower_components/animate.css/animate.css',
       'bower_components/bootstrap/dist/css/bootstrap-theme.css',
+      'bower_components/angular-chart.js/dist/angular-chart.css',
       'bower_components/angular-notify/dist/angular-notify.css',
       SRC_DIR + '/css/styles.css'
       //      SRC_DIR + '/css/all.less'
@@ -41,12 +42,17 @@ module.exports = {
       'bower_components/bootstrap/dist/fonts/*',
       'bower_components/font-awesome/fonts/*'
     ],
+    data: [
+      'src/data/**/*'
+    ],
     vendors: [
       'bower_components/jquery/dist/jquery.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/lodash/lodash.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/Chart.js/Chart.min.js',
+      'bower_components/angular-chart.js/dist/angular-chart.js',
       //      'bower_components/angular-notify/dist/angular-notify.js',
       'bower_components/angular-animate/angular-animate.js'
       //      'bower_components/angular-bootstrap/ui-bootstrap.js',
