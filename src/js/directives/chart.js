@@ -17,7 +17,10 @@ function chart() {
         } else {
           $scope.model.popup = 'modal fade';
         }
-        $scope.labels = _.pluck($scope.categories, 'name');
+        $scope.labels = _.pluck($scope.categories, 'name')
+          .map(function(i) {
+            return i + ', %';
+          });
         $scope.data = [];
         var max = 0;
         for (var i in $scope.categories) {
