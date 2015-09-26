@@ -1,4 +1,4 @@
-function DashboardController($scope, $http, $timeout) {
+function DashboardController($scope, $http, $timeout, $rootScope) {
   var data = [];
   var mdeg = 0.00000904363;
 
@@ -109,6 +109,7 @@ function DashboardController($scope, $http, $timeout) {
     });
   }
   var ready = function() {
+    $rootScope.bodyClass = 'loaded';
     DG.then(function() {
       fonts.forEach(function(x, i) {
         myIcons[i] = DG.divIcon({

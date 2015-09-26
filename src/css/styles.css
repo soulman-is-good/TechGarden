@@ -50,8 +50,20 @@ body {
 }
 .modal {
   /*position: absolute;*/
-  left: 100px;
-  top: 100px;
+  /*left: 100px;*/
+  /*top: 100px;*/
   /*width: 800px;*/
   /*height: 600px;*/
+}
+.splash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff url(/img/loader.gif) no-repeat 50% 50%;
+  z-index: 9999;
+}
+.loaded .splash {
+  display: none;
 }

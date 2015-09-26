@@ -9,7 +9,9 @@ angular.module('app', [
     'app.filters',
     'app.directives'
   ])
-  .run(['$rootScope', '$state', function($rootScope, $state) {}]);
+  .run(['$rootScope', '$state', function($rootScope, $state) {
+    $rootScope.bodyClass = 'loading';
+  }]);
 
 angular.module('app.controllers', []);
 angular.module('app.services', []);
