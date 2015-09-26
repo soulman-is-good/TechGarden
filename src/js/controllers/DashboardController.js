@@ -49,8 +49,7 @@ function DashboardController($scope, $http, $timeout, $rootScope) {
   var myIcons = [];
   var fonts = [
     null,
-    // "fa-institution",
-    "fa-wrench",
+    "fa-institution",
     "fa-heartbeat",
     "fa-shield",
     "fa-plus-square",
