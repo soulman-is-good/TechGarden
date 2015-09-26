@@ -79,7 +79,7 @@ function DashboardController($scope, $http, $timeout) {
       cat.count = 0;
       cat.ccnt = 0;
     })
-    if (data.items.length)
+    if (data.items && data.items.length)
       for (var i = 0; i < data.items.length; i++) {
         var x = data.items[i];
         if ($scope.selected.length > 0 && $scope.selected.indexOf(x.category_id) > -1 && x.lat && x.lon &&
